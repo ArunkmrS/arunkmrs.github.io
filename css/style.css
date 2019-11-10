@@ -329,7 +329,7 @@ body::-webkit-scrollbar-thumb,
     Start servicePage
 ************************/
 .services-page .service-pragraph{
-    padding: 25px 22%;    
+ /* padding: 25px 22%;     */
     letter-spacing: .7px;
     line-height: 28px;
     font-size: 15px;
@@ -701,3 +701,4 @@ body::-webkit-scrollbar-thumb,
 .switch-change-color .color-grad ul li:nth-of-type(4){
     background:#94df43;    
 }
+
