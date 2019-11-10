@@ -6,11 +6,11 @@ jQuery(document).ready(function ($) {
     initialCountry: "in",
     placeholderNumberType: "MOBILE",
     separateDialCode: true,
-    utilsScript: "build/js/utils.js",
+    utilsScript: "js/utils.js",
   });
-
   //Contact
   $('form.contactForm').submit(function () {
+
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
@@ -108,6 +108,7 @@ jQuery(document).ready(function ($) {
     if (ferror) return false;
     else var str = $(this).serialize();
     var action = $(this).attr('action');
+    let searchParams = new URLSearchParams(str);
     if (!action) {
       var template_params = {
         "name": searchParams.get("name"),
@@ -120,10 +121,10 @@ jQuery(document).ready(function ($) {
       var template_id = "default";
 
       emailjs.send(service_id, template_id, template_params).then(function (response) {
-        $("#sendmessage").html = "Message Succssfully sent";
+        $("#sendmessage").innerHTML  = "Message Succssfully sent";
         $('.contactForm').find("input, textarea").val("");
       }, function (error) {
-        $("#sendmessage").html = "Failed to Send message";
+        $("#sendmessage").innerHTML  = "Failed to Send message";
       });
 
     }
